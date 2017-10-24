@@ -1,19 +1,3 @@
-/*
-  * Copyright 2014 Netflix, Inc.
-  *
-  * Licensed under the Apache License, Version 2.0 (the "License");
-  * you may not use this file except in compliance with the License.
-  * You may obtain a copy of the License at
-  *
-  *    http://www.apache.org/licenses/LICENSE-2.0
-  *
-  * Unless required by applicable law or agreed to in writing, software
-  * distributed under the License is distributed on an "AS IS" BASIS,
-  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  * See the License for the specific language governing permissions and
-  * limitations under the License.
-  */
-
 package com.netflix.spinnaker.gate.controllers
 
 import com.netflix.spinnaker.gate.services.EcsClusterService
@@ -30,9 +14,9 @@ class EcsClusterController {
   @Autowired
   EcsClusterService ecsClusterService
 
-  @ApiOperation(value = "Retrieve a list of ECS clusters that can be used by the selected cloud provider")
-  @RequestMapping(value = "/{provider}/{account}/{region}", method = RequestMethod.GET)
-  List all(@PathVariable String provider, @PathVariable String account, @PathVariable String region) {
-    ecsClusterService.getEcsClusters(provider, account, region)
+  @ApiOperation(value = "Retrieve a list of ECS clusters that can be used for the account and region.")
+  @RequestMapping(value = "/{account}/{region}", method = RequestMethod.GET)
+  List all(@PathVariable String account, @PathVariable String region) {
+    ecsClusterService.getEcsClusters(account, region)
   }
 }

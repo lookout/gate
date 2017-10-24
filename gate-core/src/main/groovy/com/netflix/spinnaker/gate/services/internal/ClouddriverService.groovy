@@ -282,8 +282,7 @@ interface ClouddriverService {
                      @Path("account") String account,
                      @Path("region") String region)
 
-  @GET('/ecsClusters/{cloudProvider}/{account}/{region}')
-  List<String> getEcsClusters(@Path("cloudProvider") String cloudProvider,
-                           @Path("account") String account,
+  @GET('/ecs/{account}/{region}/ecscluster')
+  List<String> getEcsClusters(@Path("account") String account,
                            @Path("region") String region)
 }

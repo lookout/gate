@@ -15,9 +15,9 @@ class EcsClusterService {
     this.clouddriver = clouddriver
   }
 
-  List getEcsClusters(String provider, String account, String region) {
+  List getEcsClusters(String account, String region) {
     HystrixFactory.newListCommand("pipelines", "updatePipeline") {
-      clouddriver.getEcsClusters(provider, account, region)
+      clouddriver.getEcsClusters(account, region)
     } execute()
   }
 }
