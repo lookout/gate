@@ -284,6 +284,10 @@ interface ClouddriverService {
   List<String> getEcsClusters(@Path("account") String account,
                            @Path("region") String region)
 
+  @GET('/ecs/cloudmetrics/{account}/{region}/alarms')
+  List<Map> getEcsCloudMetricAlarms(@Path("account") String account,
+                              @Path("region") String region)
+
   @GET('/storage')
   List<String> getStorageAccounts()
 }
