@@ -1,4 +1,4 @@
-package com.netflix.spinnaker.gate.controllers
+package com.netflix.spinnaker.gate.controllers.ecs
 
 import com.netflix.spinnaker.gate.services.EcsCloudMetricService
 import io.swagger.annotations.ApiOperation
