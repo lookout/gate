@@ -14,7 +14,7 @@ class EcsCloudMetricService {
     this.clouddriver = clouddriver
   }
 
-  List getEcsMetricAlarms(String account, String region) {
-    clouddriver.getEcsCloudMetricAlarms(account, region)
+  List getEcsAllMetricAlarms() {
+    clouddriver.getEcsAllMetricAlarms()
   }
 }
