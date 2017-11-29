@@ -1,7 +1,6 @@
 package com.netflix.spinnaker.gate.controllers.ecs
 
 import com.netflix.spinnaker.gate.services.EcsClusterService
-import com.netflix.spinnaker.gate.services.commands.HystrixFactory
 import io.swagger.annotations.ApiOperation
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.PathVariable
@@ -17,8 +16,6 @@ class EcsClusterController {
   @ApiOperation(value = "Retrieve a list of ECS clusters that can be used for the account and region.")
   @RequestMapping(value = "/ecs/ecsClusters", method = RequestMethod.GET)
   List all() {
-    HystrixFactory.newListCommand("pipelines", "updatePipeline") {
-      ecsClusterService.getAllEcsClusters()
-    } execute()
+    ecsClusterService.getAllEcsClusters()
   }
 }
